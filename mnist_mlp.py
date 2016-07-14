@@ -28,7 +28,7 @@ Y_test  = np_utils.to_categorical(y_test, 10)
 # シーケンシャルモデル
 model = Sequential()
 
-# 入力層
+# 隠れ層 1
 # - ノード数：512
 # - 入力：784 次元
 # - 活性化関数：relu
@@ -37,7 +37,7 @@ model.add(Dense(512, input_dim=784))
 model.add(Activation('relu'))
 model.add(Dropout(0.2))
 
-# 隠れ層
+# 隠れ層 2
 # - ノード数：512
 # - 活性化関数：relu
 # - ドロップアウト比率：0.2
