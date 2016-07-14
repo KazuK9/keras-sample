@@ -72,5 +72,5 @@ model.fit(X_train, Y_train,
 
 # 評価
 score = model.evaluate(X_test, Y_test, verbose=0)
-print('Test score:', score[0])
-print('Test accuracy:', score[1])
+print('Test loss :', score[0])
+print('Test accuracy :', score[1])
