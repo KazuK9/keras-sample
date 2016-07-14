@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-np.random.seed(20160714) # シード値を固定
+np.random.seed(20160715) # シード値を固定
 
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation
-from keras.optimizers import SGD, Adam, RMSprop
+from keras.optimizers import RMSprop
 from keras.utils import np_utils
 
-# MNIST データを取り込む
+# MNIST データセットを取り込む
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-# 28 * 28 の2次元配列 x 60,000
-# >>> 784 要素の1次元配列 x 60,000（256階調を 0 〜 1 に正規化）
+# 変換前：28 * 28 の2次元配列 x 60,000
+# 変換後：784 要素の1次元配列 x 60,000（256階調を 0 〜 1 に正規化）
 X_train = X_train.reshape(60000, 784).astype('float32') / 255
 X_test  = X_test.reshape(10000, 784).astype('float32') / 255
 
-# 0 〜 9 の数字 x 60,000
-# >>> 10要素の1次元配列（one-hot 表現） x 60,000
-#     - 0 : [1,0,0,0,0,0,0,0,0,0]
-#     - 1 : [0,1,0,0,0,0,0,0,0,0]
-#     ...
+# 変換前：0 〜 9 の数字 x 60,000
+# 変換後：10要素の1次元配列（one-hot 表現） x 60,000
+#         - 0 : [1,0,0,0,0,0,0,0,0,0]
+#         - 1 : [0,1,0,0,0,0,0,0,0,0]
+#         ...
 Y_train = np_utils.to_categorical(y_train, 10)
 Y_test  = np_utils.to_categorical(y_test, 10)
 
