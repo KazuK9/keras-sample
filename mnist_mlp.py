@@ -9,6 +9,8 @@ from keras.layers.core import Dense, Dropout, Activation
 from keras.optimizers import RMSprop
 from keras.utils import np_utils
 
+import matplotlib.pyplot as plt
+
 # MNIST データセットを取り込む
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
@@ -64,7 +66,7 @@ model.compile(loss='categorical_crossentropy',
 # 学習
 # - バッチサイズ：128
 # - 学習の繰り返し回数：20
-model.fit(X_train, Y_train,
+history = model.fit(X_train, Y_train,
           batch_size=128,
           nb_epoch=20,
           verbose=1,
@@ -74,3 +76,15 @@ model.fit(X_train, Y_train,
 score = model.evaluate(X_test, Y_test, verbose=0)
 print('Test loss :', score[0])
 print('Test accuracy :', score[1])
+
+# 学習過程をグラフで出力
+loss     = history.history['loss']
+val_loss = history.history['val_loss']
+nb_epoch = len(loss)
+plt.plot(range(nb_epoch), loss, marker='.', label='loss')
+plt.plot(range(nb_epoch), val_loss, marker='.', label='val_loss')
+plt.legend(loc='best', fontsize=10)
+plt.grid()
+plt.xlabel('epoch')
+plt.ylabel('loss')
+plt.show()
