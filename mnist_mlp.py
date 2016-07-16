@@ -6,7 +6,6 @@ np.random.seed(20160715) # シード値を固定
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation
-from keras.optimizers import RMSprop
 from keras.utils import np_utils
 
 import matplotlib.pyplot as plt
