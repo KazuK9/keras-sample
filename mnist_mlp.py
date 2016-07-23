@@ -66,10 +66,10 @@ model.compile(loss='categorical_crossentropy',
 # - バッチサイズ：128
 # - 学習の繰り返し回数：20
 history = model.fit(X_train, Y_train,
-          batch_size=128,
-          nb_epoch=20,
-          verbose=1,
-          validation_data=(X_test, Y_test))
+                    batch_size=128,
+                    nb_epoch=20,
+                    verbose=1,
+                    validation_data=(X_test, Y_test))
 
 # 評価
 score = model.evaluate(X_test, Y_test, verbose=0)
