@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 # MNIST データセットを取り込む
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-# 変換前：28 * 28 の2次元配列 x 60,000
+# 変換前：28 x 28 の2次元配列 x 60,000
 # 変換後：784 要素の1次元配列 x 60,000（256階調を 0 〜 1 に正規化）
 X_train = X_train.reshape(60000, 784).astype('float32') / 255
 X_test  = X_test.reshape(10000, 784).astype('float32') / 255
