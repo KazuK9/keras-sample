@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 # 変換前：28 x 28 の2次元配列 x 60,000
 # 変換後：1 x 28 x 28 の3次元配列 x 60,000
-#         - 今回はグレースケールなので1チャネル（RGB であれば3チャネル）
+#         - 今回はグレースケールなので1チャネル（RGB などであれば3チャネル）
 X_train = X_train.reshape(X_train.shape[0], 1, 28, 28).astype('float32') / 255
 X_test  = X_test.reshape(X_test.shape[0], 1, 28, 28).astype('float32') / 255
 
