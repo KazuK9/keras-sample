@@ -56,7 +56,7 @@ model.add(Dropout(0.25))
 
 # 1次元配列に変換
 # - 入力：12 x 12 の2次元配列 x 32
-# - 出力：4608 の1次元配列
+# - 出力：4608要素の1次元配列
 model.add(Flatten())
 
 # 隠れ層
@@ -86,11 +86,11 @@ model.compile(loss='categorical_crossentropy',
 # 学習
 # - バッチサイズ：128
 # - 学習の繰り返し回数：12
-model.fit(X_train, Y_train,
-          batch_size=128,
-          nb_epoch=12,
-          verbose=1,
-          validation_data=(X_test, Y_test))
+history = model.fit(X_train, Y_train,
+                    batch_size=128,
+                    nb_epoch=12,
+                    verbose=1,
+                    validation_data=(X_test, Y_test))
 
 # 評価
 score = model.evaluate(X_test, Y_test, verbose=0)
