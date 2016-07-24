@@ -34,6 +34,7 @@ model = Sequential()
 # 畳み込み層 1
 # - フィルタ数：32
 # - カーネルサイズ：3 x 3
+# - 活性化関数：relu
 # - 出力：26 x 26 の2次元配列 x 32
 model.add(Convolution2D(32, 3, 3,
                         border_mode='valid',
@@ -43,6 +44,7 @@ model.add(Activation('relu'))
 # 畳み込み層 2
 # - フィルタ数：32
 # - カーネルサイズ：3 x 3
+# - 活性化関数：relu
 # - 出力：24 x 24 の2次元配列 x 32
 model.add(Convolution2D(32, 3, 3))
 model.add(Activation('relu'))
